@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-[assembly: Microsoft.Owin.OwinStartup("ShaligramInfotech", typeof(App.TridhiyaTech.Startup))]
+[assembly: Microsoft.Owin.OwinStartup("TridhiyaTech", typeof(App.TridhiyaTech.Startup))]
 
 namespace App.TridhiyaTech
 {

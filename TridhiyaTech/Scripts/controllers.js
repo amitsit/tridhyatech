@@ -709,7 +709,7 @@ angular.module('app.controllers', [])
                     $scope.allData.EMI = "";
                     $scope.allData.Rupees = "Free";
                     $('.loader').show();
-                    $http.post("ShaligramInfotechAPI/api/CommonApi/SaveInformation", $scope.allData)
+                    $http.post("TridhiyaTechAPI/api/CommonApi/SaveInformation", $scope.allData)
                         .then(function (response) {
 
                             if (response) {
@@ -981,7 +981,7 @@ angular.module('app.controllers', [])
                     $scope.allData.EMI = $rootScope.EMIText;
                     $scope.allData.Rupees = $rootScope.FromRsText;
                     $('.loader').show();
-                    $http.post("ShaligramInfotechAPI/api/CommonApi/SaveInformation", $scope.allData)
+                    $http.post("TridhiyaTechAPI/api/CommonApi/SaveInformation", $scope.allData)
                         .then(function (response) {
 
                             if (response) {
@@ -1055,7 +1055,7 @@ angular.module('app.controllers', [])
       .controller('CommonImagesController', ['$scope', '$location', '$window', '$rootScope', '$http', function ($scope, $location, $window, $rootScope, $http) {
           $scope.GetFilesList = function (folderPath) {
               $scope.FolderPath = folderPath;
-              $http.get("ShaligramInfotechAPI/api/CommonApi/GetFiles?folderPath=" + folderPath)
+              $http.get("TridhiyaTechAPI/api/CommonApi/GetFiles?folderPath=" + folderPath)
                              .then(function (response) {
                                  $scope.GetList = response.data;
                              });

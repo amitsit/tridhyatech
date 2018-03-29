@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup("ShaligramInfotechAPI", typeof(TridhiyaTechAPI.Startup))]
+[assembly: OwinStartup("TridhiyaTechAPI", typeof(TridhiyaTechAPI.Startup))]
 
 namespace TridhiyaTechAPI
 {

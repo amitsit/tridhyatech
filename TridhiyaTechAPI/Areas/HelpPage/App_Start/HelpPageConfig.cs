@@ -26,7 +26,7 @@ namespace TridhiyaTechAPI.Areas.HelpPage
     public static class HelpPageConfig
     {
         [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters",
-            MessageId = "ShaligramInfotechAPI.Areas.HelpPage.TextSample.#ctor(System.String)",
+            MessageId = "TridhiyaTechAPI.Areas.HelpPage.TextSample.#ctor(System.String)",
             Justification = "End users may choose to merge this string with existing localized resources.")]
         [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly",
             MessageId = "bsonspec",

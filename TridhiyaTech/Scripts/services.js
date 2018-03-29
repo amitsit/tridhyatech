@@ -11,9 +11,9 @@ angular.module('app.services').service('configurationService', function () {
 
     var configService = {};
 
-    configService.basePath = "http://localhost:8080/ShaligramInfotechAPI/";
+    configService.basePath = "http://localhost:8282/TridhiyaTechAPI/";
 
-    //configService.basePath = "http://www.shaligraminfotech.com/ShaligramInfotechAPI/";
+    //configService.basePath = "http://www.TridhiyaTech.com/TridhiyaTechAPI/";
     return configService;
 
 });
