@@ -1,0 +1,649 @@
+﻿@using System.Web.Mvc
+
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title ng-bind="title">@(PageData["title"] ?? "Shaligram Infotech")</title>
+    <meta name="keyword" content="{{metakeyword}}">
+    <meta name="description" content="{{metadescription}}">
+
+    <meta name="google-site-verification" content="vSForgwmACL4iTK1cYR-aoiznVS3s9VVNdx9SQJcf4g" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9;IE=10;IE=Edge,chrome=1" />
+    <meta name="Robots" content="all">
+    <meta name="GOOGLEBOT" content="INDEX, FOLLOW">
+    <meta name="Yahoobot" content="Index, Follow">
+    <meta name="MSNbot" content="index, follow">
+    <meta name="allow-search" content="yes">
+    <meta name="robots" content="index, follow">
+    <meta name="rating" content="General">
+    <meta name="distribution" content="global">
+    <meta name="author" content="Shaligram Infotech">
+
+    <meta name="copyright" content="http://www.shaligraminfotech.com/">
+    <meta name="reply-to" content="info@shaligraminfotech.com">
+    <meta name="geo.region" content="IN-GJ">
+    <meta name="Geography" content="Shaligram House, Behind Rajpath Club, Off. S.G. Road, Bodakdev, Ahmedabad-380059, India ">
+
+    <meta name="pub lisher" content="Shaligram Infotech">
+    <meta name="document-type" content="Public">
+
+    <base href="/" />
+
+
+    <!-- Temporary Css included files instead of using Render -->
+
+    <link rel="stylesheet" href="~/content/app.css" />
+    <link rel="stylesheet" href="~/content/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/content/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/content/css/themify-icons.css" />
+    <link rel="stylesheet" href="~/content/css/swiper.min.css" />
+    <link rel="stylesheet" href="~/content/css/header.responsive.min.css" />
+
+    <link rel="stylesheet" href="~/Content/css/portfolio.css" />
+    <link rel="stylesheet" href="~/Content/css/pricing_style.css" />
+    <link rel="stylesheet" href="~/Scripts/js/fancybox/jquery.fancybox.css" />
+    <link rel="stylesheet" href="~/content/css/custom.min.css" />
+    <link rel="stylesheet" href="~/content/css/responsive.min.css" />
+
+    @*@Styles.Render("~/content/css/app")*@
+
+    <link href="~/Content/css/toastr-angular.css" rel="stylesheet" />
+    <link rel="icon" href="Images/favicon.ico">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}
+            , Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script")
+                , s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/56f2b166d68ada7f0fa9a8ec/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <style type="text/css">
+        @@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+        .hvr-bounce-in {
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s;
+        }
+
+            .hvr-bounce-in:hover,
+            .hvr-bounce-in:focus,
+            .hvr-bounce-in:active {
+                -webkit-transform: scale(1.2);
+                transform: scale(1.2);
+                -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+                transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+            }
+    </style>
+
+</head>
+
+
+
+<body class="{{$state.current.name}}" ng-cloak>
+    <div ng-controller="PortfolioController" style="display:none;">
+        <span portfolio-ready></span>
+    </div>
+    <header class="top-nav">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 left">
+                    <ul>
+                        <li><a class="phone" href="tel:+1-210-888-8402"><span class="blue"><i class="fa fa-phone"></i>+1-210-888-8402</span></a>
+                        <li><a class="email pr-0" target="_blank" href="mailto:info@shaligraminfotech.com"><span class="blue"><i class="fa fa-envelope-o"></i> info@shaligraminfotech.com</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 right">
+                    <a class="btn btn-warning btn-xs hidden-xs" href="/requestquote" sref="requestquote">Request Quote</a>
+                    <div class="lang">
+                        <div class="top-text" id="google_translate_element">
+                            <span class="blue">
+                                <script type="text/javascript">
+                                    function googleTranslateElementInit() {
+                                        new google.translate.TranslateElement({
+                                            pageLanguage: 'en',
+                                            includedLanguages: 'en,es,fr,nl'
+                                        },
+                                        'google_translate_element');
+                                        jQuery(".goog-logo-link").css({ "display": "none" });
+                                        jQuery(".goog-te-gadget").css({ "font-size": "0", "color": "#f58634" });
+                                        jQuery(".skiptranslate").css({ "display": "none" });
+                                    }
+                                </script>
+                            </span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><a href="http://www.shaligraminfotech.com/"><img alt="flag india" src="/images/flags/india1.png" title="India"></a></li>
+                        <li><a href="http://www.shaligraminfotech.com/"><img alt="flag USA" src="/images/flags/us.png" title="USA"></a></li>
+                        <li><a href="http://www.shaligraminfotech.com/"><img alt="flag uk" src="/images/flags/uk.png" title="UK"></a></li>
+                        <li><a href="http://www.shaligraminfotech.com.au/"><img alt="flag australia" src="/images/flags/australia.png" title="Australia"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-default mainHeader">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="" ui-sref="home"><img height="45" src="/images/logo_shaligram.png" title="Software Development Company" alt="Shaligram Infotech" /></a>
+                <div class="asas">
+                    <a class="btn btn-warning btn-xs visible-xs" href="/requestquote" sref="requestquote">Request Quote</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right mainUL">
+                    <li class="submenuLiMain">
+                        <a href="#" ng-class="{'menuHighlight': (
+                                            $state.current.name === 'who-we-are' ||
+                                            $state.current.name === 'leadership' ||
+                                            $state.current.name === 'infrastructure'||
+                                            $state.current.name === 'career' ||
+                                            $state.current.name === 'development-process'
+                           )}" title="Software Development Company | Software Development Company UK">
+                            Company<i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="subMenu oneColumn">
+                            <li>
+                                <ul>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'who-we-are'}]"> <a href="" ui-sref="who-we-are">Who We Are</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'leadership'}]"> <a href="" ui-sref="leadership">Leadership</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'infrastructure'}]"> <a href="" ui-sref="infrastructure">Infrastructure</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'career'}]"> <a href="" ui-sref="career">Career</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'development-process'}]"> <a href="" ui-sref="development-process">Development Process</a> </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </li>
+                    <li class="submenuLiMain">
+                        <a href="#" ng-class="{'menuHighlight': (
+                                            $state.current.name === 'application-development' ||
+                                            $state.current.name === 'software-product-development' ||
+                                            $state.current.name === 'software-application-migration'||
+                                            $state.current.name === 'software-application-support' ||
+                                            $state.current.name === 'web-portal-development'||
+                                            $state.current.name === 'responsive-website-development' ||
+                                            $state.current.name === 'hire-resource' ||
+                                            $state.current.name === 'bi-services'||
+                                            $state.current.name === 'testing-qa-services' ||
+                                            $state.current.name === 'offshore-development-center'||
+                                            $state.current.name === 'mobile-app-development' ||
+                                            $state.current.name === 'cloud-services'
+                           )}" title="Retail ERP Software Development Company | Retail ERP Software Development Company UK">Services<i class="fa fa-angle-down"></i></a>
+                        <ul class="subMenu oneColumn">
+                            <li>
+                                <ul>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'application-development'}]"> <a href="" ui-sref="application-development">Application Development</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'software-product-development'}]"> <a href="" ui-sref="software-product-development">Product Development</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'software-application-migration'}]"> <a href="" ui-sref="software-application-migration">Application Migration &amp; Modernization</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'software-application-support'}]"> <a href="" ui-sref="software-application-support">Application Support &amp; Maintenance</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'web-portal-development'}]"> <a href="" ui-sref="web-portal-development">Web Portal Development</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'responsive-website-development'}]"> <a href="" ui-sref="responsive-website-development">Responsive Website Development</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'hire-resource'}]"> <a href="" ui-sref="hire-resource">Hire Resources</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'bi-services'}]"> <a href="" ui-sref="bi-services">Business intelligence</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'testing-qa-services'}]"> <a href="" ui-sref="testing-qa-services">Testing-QA</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'offshore-development-center'}]"> <a href="" ui-sref="offshore-development-center">Offshore Development Center</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'mobile-app-development'}]"> <a href="" ui-sref="mobile-app-development">Mobile Apps Development</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'cloud-services'}]"> <a href="" ui-sref="cloud-services">Cloud Services</a> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="domainExpertise" ng-class="['submenuLiMain',{'menuHighlight': $state.current.name === 'domain-expertise'}]">
+                        <a href="" ui-sref="domain-expertise" title="Shaligram Infotech Domain Expertise | Software Development Company">Domain Expertise</a>
+                    </li>
+                    <li class="submenuLiMain">
+                        <a href="#" ng-class="{'menuHighlight': (
+                                            $state.current.name === 'crm-solution' ||
+                                            $state.current.name === 'ecommerce-solution' ||
+                                            $state.current.name === 'hrandjob-portal-solution'||
+                                            $state.current.name === 'enterprise-content-management' ||
+                                            $state.current.name === 'live-chat-and-support'
+                           )}" title="Ecommerce Solution Provider UK |  CRM Solutions Provider UK">Solutions<i class="fa fa-angle-down"></i></a>
+                        <ul class="subMenu oneColumn">
+                            <li>
+                                <ul>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'crm-solution'}]"> <a href="" ui-sref="crm-solution">CRM Solution</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'ecommerce-solution'}]"> <a href="" ui-sref="ecommerce-solution">E-Commerce Solution</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'hrandjob-portal-solution'}]"> <a href="" ui-sref="hrandjob-portal-solution">HR &amp; Job Portal Solution</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'enterprise-content-management'}]"> <a href="" ui-sref="enterprise-content-management">Enterprise Content Management</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'live-chat-and-support'}]"> <a href="" ui-sref="live-chat-and-support">Live Chat and Support Ticket System</a> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="submenuLiMain">
+                        <a href="#" ng-class="{'menuHighlight': (
+                                            $state.current.name === 'sharepoint' ||
+                                            $state.current.name === 'java' ||
+                                            $state.current.name === 'biztalk'||
+                                            $state.current.name === 'microsoft-dot-net' ||
+                                            $state.current.name === 'nodejs'||
+                                            $state.current.name === 'angularjs-development' ||
+                                            $state.current.name === 'ajax-development' ||
+                                            $state.current.name === 'html5-development'||
+                                            $state.current.name === 'php-open-source' ||
+                                            $state.current.name === 'hadoop-development'
+                           )}" title="Java Web Development Company USA | ASP.NET Web Development Company UK">Technologies<i class="fa fa-angle-down"></i></a>
+                        <ul class="subMenu oneColumn">
+                            <li>
+                                <ul>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'sharepoint'}]"> <a href="" ui-sref="sharepoint">SharePoint</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'java'}]"> <a href="" ui-sref="java">JAVA</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'biztalk'}]"> <a href="" ui-sref="biztalk">BizTalk</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'microsoft-dot-net'}]"> <a href="" ui-sref="microsoft-dot-net">Microsoft .NET</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'nodejs'}]"> <a href="" ui-sref="nodejs">NodeJs</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'angularjs-development'}]"> <a href="" ui-sref="angularjs-development">AngularJs</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'ajax-development'}]"> <a href="" ui-sref="ajax-development">AJAX</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'html5-development'}]"> <a href="" ui-sref="html5-development">HTML5</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'php-open-source'}]"> <a href="" ui-sref="php-open-source">PHP/Open Sources</a> </li>
+                                    <li ng-class="['subMenuLi',{'menuHighlight': $state.current.name === 'hadoop-development'}]"> <a href="" ui-sref="hadoop-development">Hadoop</a> </li>
+                                </ul>
+                        </ul>
+                    </li>
+
+                    <li id="portfolio" ng-class="['submenuLiMain',{'menuHighlight': ($state.current.name === 'portfolio' || $state.current.name == 'portfolio-detail' )}]">
+                        <a href="" ui-sref="portfolio({isRoot: true})" title="Project Management System Software Development | Writer Job Portal Development Company USA">Portfolio</a>
+                    </li>
+
+                    <li id="contact" ng-class="['submenuLiMain',{'menuHighlight': $state.current.name === 'contact-us'}]">
+                        <a href="" ui-sref="contact-us"
+                           title="Ecommerce Portal Development Company | Software Development Company">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="ui-view" ui-view data-tmpl-url="@Request.RequestContext.RouteData.DataTokens["templateUrl"]">
+        @RenderBody()
+    </div>
+    <div class="loader img" ng-hide="!layout.loading">
+        <p><img src="/Images/Spinner.svg"></p>
+    </div>
+
+    <div class="s-icon">
+        <div class="container">
+            <div class="swiper-container swiper-container2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="/images/tech/android_dev.png" alt="Android Application Development" title="Android Application Development"></div>
+                    <div class="swiper-slide"><img src="/images/tech/java.png" alt="Java Web Development" title="Java Web Development"></div>
+                    <div class="swiper-slide"><img src="/images/tech/nodejs.png" alt="Node JS Web Development" title="Node JS Web Development"></div>
+                    <div class="swiper-slide"><img src="/images/tech/CSS3.png" alt="CSS3 Web Development" title="CSS3 Web Development"></div>
+                    <div class="swiper-slide"><img src="/images/tech/apple_dev.png" alt="Iphone Application Development" title="Iphone Application Development"></div>
+                    <div class="swiper-slide"><img src="/images/tech/html5.png" alt="HTML5 Web Development" title="HTML5 Web Development"></div>
+                    <div class="swiper-slide"><img src="/images/tech/js.png" alt="JavaScript Web Development" title="JavaScript Web Development"></div>
+                    <div class="swiper-slide"><img src="/images/tech/dotnet.png" alt="ASP.NET Web Development" title="ASP.NET Web Development"></div>
+                    <div class="swiper-slide"><img src="/images/tech/angularjs.png" alt="Angular Js Web Development" title="Angular Js Web Development"></div>
+                    <div class="swiper-slide"><img src="/images/tech/mysql.png" alt="Database Management" title="Database Management"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <aside id="sticky-social">
+        <ul style="list-style-type: none;">
+            <li>
+                <a href="https://www.facebook.com/shaligraminfotech" class="entypo-facebook hvr-bounce-in" title="visit Shaligram Infotech facebook page" target="_blank">
+
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/shaligram_it" class="entypo-twitter hvr-bounce-in" title="visit Shaligram Infotech twitter page" target="_blank">
+
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/116039587298214933100" title="visit Shaligram Infotech google plus page" class="entypo-gplus hvr-bounce-in" target="_blank">
+
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/shaligram-infotech" title="visit Shaligram Infotech linkedin page" class="entypo-linkedin hvr-bounce-in" target="_blank">
+                </a>
+            </li>
+            <li>
+                <a href="" ui-sref="blog({parameter: null})" title="visit Shaligram Infotech Blogs" style="background-color: #f87f14; display: table-cell;" class="entypo-blogger hvr-bounce-in">
+                    <img src="~/Images/blogger_icon.png" />
+                </a>
+            </li>
+            <li>
+                <a href="" ui-sref="subscribe" title="subscribe to updates" style="background-color: #3f51b5; display: table-cell;" class="entypo-blogger hvr-bounce-in">
+                    <i class="fa fa-wifi"></i>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <footer>
+        <div class="container">
+            <div class="row footermenu">
+                <div class="col-md-3 col-xs-12">
+                    <h6>Company</h6>
+                    <ul class="list1">
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'who-we-are'}]"> <a href="" ui-sref="who-we-are">Who We Are</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'leadership'}]"> <a href="" ui-sref="leadership">Leadership</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'infrastructure'}]"> <a href="" ui-sref="infrastructure">Infrastructure</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'career'}]"> <a href="" ui-sref="career">Career</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'development-process'}]"> <a href="" ui-sref="development-process">Development Process</a> </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-xs-12">
+                    <h6>Services</h6>
+                    <ul class="list1">
+
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'application-development'}]"> <a href="" ui-sref="application-development">Application Development</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'software-product-development'}]"> <a href="" ui-sref="software-product-development">Product Development</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'software-application-migration'}]"> <a href="" ui-sref="software-application-migration">Application Migration &amp; Modernization</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'software-application-support'}]"> <a href="" ui-sref="software-application-support">Application Support &amp; Maintenance</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'web-portal-development'}]"> <a href="" ui-sref="web-portal-development">Web Portal Development</a> </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-xs-12">
+                    <h6>Solutions</h6>
+                    <ul class="list1">
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'crm-solution'}]"> <a href="" ui-sref="crm-solution">CRM Solution</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'ecommerce-solution'}]"> <a href="" ui-sref="ecommerce-solution">E-Commerce Solution</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'hrandjob-portal-solution'}]"> <a href="" ui-sref="hrandjob-portal-solution">HR &amp; Job Portal Solution</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'enterprise-content-management'}]"> <a href="" ui-sref="enterprise-content-management">Enterprise Content Management</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'live-chat-and-support'}]"> <a href="" ui-sref="live-chat-and-support">Live Chat and Support Ticket System</a> </li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3 col-xs-12">
+                    <h6>Technologies</h6>
+                    <ul class="list1">
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'sharepoint'}]"> <a href="" ui-sref="sharepoint">SharePoint</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'java'}]"> <a href="" ui-sref="java">JAVA</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'biztalk'}]"> <a href="" ui-sref="biztalk">BizTalk</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'microsoft-dot-net'}]"> <a href="" ui-sref="microsoft-dot-net">Microsoft .NET</a> </li>
+                        <li ng-class="[{'menuHighlight': $state.current.name === 'nodejs'}]"> <a href="" ui-sref="nodejs">NodeJs</a> </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row address">
+                <div class="footer-devider"></div>
+                <div class="col-md-3 col-xs-12 box">
+                    <h6>Office ( India )</h6>
+                    <ul>
+                        <li class="map">Shaligram House, Behind Rajpath Club, Off. S.G. Road, Bodakdev<br>Ahmedabad-380059, India</li>
+
+                        <li class="phone"><a href="tel:+91-9727212899"> +91-9727212899</a></li>
+
+                        <li class="mail">
+                            <a href="mailto:info@shaligraminfotech.com">info@shaligraminfotech.com</a>
+                        </li>
+
+                        <li class="skype">
+                            <a href="skype:shaligraminfotech?chat">shaligraminfotech</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="col-md-3 col-xs-12 box">
+                    <h6>Office ( UK )</h6>
+                    <ul>
+                        <li class="map">100, College Road, Harrow, London, HA1 1BQ<br>United Kingdom</li>
+                        <li class="phone"><a href="tel:+44 20 3581 6366">+44 20 3581 6366</a></li>
+                        <li class="mail"><a href="mailto:info@shaligraminfotech.com">info@shaligraminfotech.com</a></li>
+                        <li class="skype"><a href="skype:shaligraminfotech?chat">shaligraminfotech</a></li>
+                </div>
+                <div class="col-md-3 col-xs-12 box">
+                    <h6>Office ( USA )</h6>
+                    <ul>
+                        <li class="map">14793 Pensham Drive, Frisco TX 75035,<br>USA</li>
+                        <li class="phone"><a href="tel:+1-210-888-8402"> +1-210-888-8402</a></li>
+                        <li class="fax">844-255-9976</li>
+                        <li class="mail"><a href="mailto:info@shaligraminfotech.com">info@shaligraminfotech.com</a></li>
+                        <li class="skype"><a href="skype:shaligraminfotech?chat">shaligraminfotech</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-xs-12 box">
+                    <h6>Office ( Australia )</h6>
+                    <ul>
+                        <li class="map">Level 36 Riparian Plaza, 71 Eagle Street, Brisbane, QLD 4000</li>
+                        <li class="phone">
+                            <a href="tel:+61 07 3121 3147"> +61 07 3121 3147</a><br><a href="tel:+61 0422 019 223">+61 0422 019 223</a>
+                        </li>
+                        <li class="mail">
+                            <a href="mailto:info@shaligraminfotech.com">info@shaligraminfotech.com</a>
+                        </li>
+                        <li class="skype">
+                            <a href="skype:shaligraminfotech?chat">shaligraminfotech</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <div class="container">
+                © 2018 Shaligram InfoTech Inc.
+            </div>
+        </div>
+
+        <a id="backTop" class="black" style="right: 40px; bottom: 40px; position: fixed; display: block;">Back To Top</a>
+        <div id="nonsticky-social" style="display:none;">
+            <label class="addhead">Connect With Us</label>
+            <p>
+                <a class="fa fa-facebook-square fa-2x" target="_blank" href="https://www.facebook.com/shaligraminfotech"></a>
+                <a class="fa fa-twitter-square fa-2x" target="_blank" href="https://twitter.com/shaligram_it"></a>
+                <a class="fa fa-google-plus-square fa-2x" target="_blank" href="https://plus.google.com/112697871928332078572/about"></a>
+                <a class="fa fa-linkedin-square fa-2x" target="_blank" href="https://www.linkedin.com/company/shaligram-infotech"></a>
+            </p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <img src="./Images/handshake.png" class="handshake-cls" />
+                    <p align="center">Thank you for your interest with Shaligram Infotech.</p>
+                    <p align="center">We will get back to you shortly.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary pull-left col-sm-offset-5 custom-butn" data-dismiss="modal" ng-click="pageReload();">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/js/jquery.min.js"></script>
+    @*<script src="~/Scripts/common.js"></script>*@
+    <script src="~/Scripts/js/fancybox/jquery.fancybox.js"></script>
+    <script src="~/Scripts/js/angular.min.js"></script>
+    <script src="~/Scripts/js/angular-local-storage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+
+    @*<script src="~/Scripts/pnotify.custom.min.js"></script>*@
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/filters.js"></script>
+    <script src="~/Scripts/services.js"></script>
+    <script src="~/Scripts/directives.js"></script>
+    <script src="~/Scripts/vendor/angular-recaptcha.js"></script>
+    <script src="~/Scripts/app.js"></script>
+
+    <script src="~/Scripts/controllers.js"></script>
+    <script src="~/Scripts/ContactUsController.js"></script>
+    <script src="~/Scripts/PortfolioController.js"></script>
+    <script src="~/Scripts/RequestQuoteController.js"></script>
+    <script src="~/Scripts/ParticularPortfolioController.js"></script>
+    <script src="~/Scripts/BlogPostController.js"></script>
+    <script src="~/Scripts/SubscriptionController.js"></script>
+    @*<script src="~/Scripts/ParticularBlogPostController.js"></script>*@
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/Priceformscript.js"></script>
+    <script src="~/Scripts/js/sticky-kit.min.js"></script>
+    <script src="~/Scripts/js/bootstrap-select.js"></script>
+    <script src="~/Scripts/js/swiper.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            var stickyOffset = $('.navbar').offset().top;
+
+
+            $(".navbar-toggle").click(function () {
+                $(this).toggleClass("open");
+            });
+
+
+            if ($(window).width() < 767) {
+                $("#navbar .nav li").click(function (e) {
+                    $(this).children(".subMenu").slideToggle();
+                    $("#navbar .nav li .fa").toggleClass("fa-angle-down fa-angle-up");
+                    e.preventDefault();
+                });
+            }
+            else {
+                $("#navbar .nav li").click(function (e) {
+                    $(this).children(".subMenu").slideToggle();
+                    $("#navbar .nav li .fa").toggleClass("fa-angle-down fa-angle-up");
+                    e.preventDefault();
+                });
+
+                $('.submenuLiMain a').hover(function () {
+                    $('.subMenu').css("display", "none");
+                    $('#navbar li:hover .subMenu').css("display", "block");
+                    $('#navbar li:hover .subMenu').addClass('showmenu');
+                });
+
+
+                $('.subMenu').mouseleave(function () {
+                    $('.subMenu').css("display", "none");
+                });
+
+                $('.subMenu ul li a').on("click", function () {
+                    $('.subMenu').css("display", "none");
+                });
+            }
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop()) {
+                    $('#backTop').fadeIn();
+                }
+                else {
+                    $('#backTop').fadeOut();
+                }
+            });
+            $("#backTop").click(function () {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+            });
+        });
+
+        var navMain = $(".subMenu li a");
+        navMain.on("click", function () {
+            $('.navbar-collapse').collapse('hide');
+            $('.navbar-toggle').removeClass('open');
+        });
+
+        var navNoSubMenu = $('#domainExpertise > a,#portfolio a, #contact a');
+        navNoSubMenu.on("click", function () {
+            $('.navbar-collapse').collapse('hide');
+            $('.navbar-toggle').removeClass('open');
+        });
+
+
+
+        $(".fancybox").fancybox({
+            openEffect: "none",
+            closeEffect: "none"
+        });
+
+
+        $(document).ready(function () {
+            var swiper = new Swiper('.swiper-container2', {
+                slidesPerView: 6,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: { delay: 1000, stopOnLastSlide: false, },
+                breakpoints: {
+                    375: {
+                        slidesPerView: 2,
+                        spaceBetween: 10
+                    },
+                    550: {
+                        slidesPerView: 3,
+                        spaceBetween: 10
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        spaceBetween: 20
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                        spaceBetween: 30
+                    }
+                }
+            });
+        });
+
+        (function () {
+            setInterval(
+                function () {
+                    if ($('.rightArrow')) {
+                        $('.rightArrow').click();
+                    }
+                }
+                , 6000);
+        })();
+
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-48999061-9', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
