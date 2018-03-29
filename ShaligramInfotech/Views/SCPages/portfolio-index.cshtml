@@ -1,0 +1,38 @@
+﻿<div class="main" style="margin-top: 2%">
+    <div class="container" ng-controller="PortfolioController">
+
+        <div id="isotope-options" class="port_menu">
+            <ul id="filters" class="option-set clearfix p_menu" data-option-key="filter">
+                <li><a href="" ng-click="GetPortfolioListForFront(0)"
+                       ng-class="{'activePortfolio': (TechnologyId === 0)}">All</a></li>
+
+                <li ng-repeat="techlist in TechnologyList">
+
+                    <a href="" ng-click="GetPortfolioListForFront(techlist.TechnologyId)"
+                       ng-class="{'activePortfolio': (TechnologyId == techlist.TechnologyId)}">
+
+                    <span ng-bind="techlist.TechnologyName"></span></a>
+                </li>
+            </ul>
+
+            <div class="portfolio-grid">
+                <div ng-repeat="pl in PorfolioList | unique : 'TitleSeoUrl'" class="isotope-element isotope-element-3 grid-item">
+                    <a ng-click="RedirectToProtfolioDetail(pl.TitleSeoUrl, pl.SEOTitleTag)">
+                        <figure>
+                            <div class="portfolio-img"><img title="{{pl.FrontImageTooltip}}" ng-src="/PortfolioImages/FrontPageImages/{{pl.FrontPageImageURL}}" alt="{{pl.FrontImageTooltip}}" /></div>
+                            <figcaption>
+                                <div class="portfolio-hover-main text-center">
+                                    <div class="portfolio-hover-box">
+                                        <div class="portfolio-hover-content">
+                                            <span ng-bind="pl.Title"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
