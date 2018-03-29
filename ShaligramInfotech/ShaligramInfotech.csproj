@@ -2146,6 +2146,7 @@
     <Content Include="Scripts\js\Priceformscript.js" />
     <Content Include="Scripts\js\sticky-kit.min.js" />
     <Content Include="Scripts\js\swiper.min.js" />
+    <Content Include="Scripts\update-meta.js" />
     <Content Include="Scripts\ParticularBlogPostController.js" />
     <Content Include="Scripts\ParticularPortfolioController.js" />
     <Content Include="Scripts\PortfolioController.js" />
