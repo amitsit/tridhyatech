@@ -2455,6 +2455,7 @@
     <Content Include="Images\portfolio\Thumbs.db" />
     <Content Include="Images\portfolio\windows\Thumbs.db" />
     <None Include="Properties\PublishProfiles\ShaligramInfotech.pubxml" />
+    <None Include="Properties\PublishProfiles\Web.pubxml" />
     <None Include="Scripts\vendor\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\vendor\jquery-2.0.3.js" />
     <Content Include="Scripts\vendor\jquery-2.0.3.min.js" />
@@ -2619,9 +2620,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ShaligramInfotechAPI\ShaligramInfotechAPI.csproj">
+    <ProjectReference Include="..\TridhiyaTechAPI\TridhiyaTechAPI.csproj">
       <Project>{81b4f4c2-dfdc-4312-8c9a-d38063db9668}</Project>
-      <Name>ShaligramInfotechAPI</Name>
+      <Name>TridhiyaTechAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
